@@ -1,15 +1,16 @@
 package taller3;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class LectorArchivos {
-	
-	static ArrayList<Hechizo> listaHechizos = new ArrayList<>();
-	
-	public ArrayList<Hechizo> lectorHechizos(ArrayList<Hechizo> listaHechizos) {
+
+	public static ArrayList<Hechizo> lectorHechizos() {
+		ArrayList<Hechizo> listaHechizos = new ArrayList<>();
 		
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("Hechizos.txt"));
@@ -23,29 +24,38 @@ public class LectorArchivos {
 				} else if (partes[1].equals("Tierra")) {
 					listaHechizos.add(new Tierra(partes[0], partes[1], Integer.parseInt(partes[2]), Integer.parseInt(partes[3])));
 				} else if (partes[1].equals("Planta")) {
-					listaHechizos.add(new Planta(partes[0], partes[1], Integer.parseInt(partes[2]), Integer.parseInt(partes[3]), Integer.parseInt(partes[4])));
+					String[] partes2 = partes[3].split(",");
+					listaHechizos.add(new Planta(partes[0], partes[1], Integer.parseInt(partes[2]), Integer.parseInt(partes2[0]), Integer.parseInt(partes2[1])));
 				} else {
-					listaHechizos.add(new Agua(partes[0], partes[1], Integer.parseInt(partes[2]), Integer.parseInt(partes[3]), Integer.parseInt(partes[4])));
+					String[] partes2 = partes[3].split(",");
+					listaHechizos.add(new Agua(partes[0], partes[1], Integer.parseInt(partes[2]), Integer.parseInt(partes2[0]), Integer.parseInt(partes2[1])));
 				}
-				
-				
+					
 			}
-			
 			
 		} catch (IOException e) {
 			System.out.print("Se encontró un problema al leer el archivo" + e.getMessage());
 		}
-		
-		
-		
-		return listaHechizos;
+		return listaHechizos;	
+	}
+	
+	public static void lectorMagos() {
 		
 	}
 	
-	
-	public void lectorMagos() {
-		
+	public static void agregarHechizo(ArrayList<Hechizo> lista) {
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter("Hechizos.txt"));
+			for (Hechizo h : lista) {
+				bw.write(h.toString());
+				bw.newLine();
+			}
+			bw.close();
+		} catch (IOException e) {
+			System.out.println("Error al agregar el texto" + e.getMessage());
+		}
 	}
+	
 	
 
 }

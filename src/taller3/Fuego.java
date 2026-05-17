@@ -9,6 +9,18 @@ public class Fuego extends Hechizo {
 		DuracionQuemadura = duracionQuemadura;
 	}
 
+	public int getDuracionQuemadura() {
+		return DuracionQuemadura;
+	}
 
+	public void setDuracionQuemadura(int duracionQuemadura) {
+		DuracionQuemadura = duracionQuemadura;
+	}
+
+	@Override
+	public String toString() {
+		return this.getNombre() + ";" + this.getTipo() + ";" + this.getDaño() + ";" + this.DuracionQuemadura;
+	}
 	
 }
+

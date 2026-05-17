@@ -9,7 +9,18 @@ public class Tierra extends Hechizo {
 		MejoraDefensa = mejoraDefensa;
 	}
 
+	public int getMejoraDefensa() {
+		return MejoraDefensa;
+	}
 
+	public void setMejoraDefensa(int mejoraDefensa) {
+		MejoraDefensa = mejoraDefensa;
+	}
+
+	@Override
+	public String toString() {
+		return this.getNombre() + ";" + this.getTipo() + ";" + this.getDaño() + ";" + this.MejoraDefensa;
+	}
 	
 	
 }

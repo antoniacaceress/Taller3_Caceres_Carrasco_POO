@@ -1,41 +1,81 @@
 package taller3;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-public abstract class Administrador implements Sistema{
+
+public class Administrador implements SistemaAdm {
+
+	Scanner scanner = new Scanner(System.in);
+	ArrayList<Hechizo> listaHechizos = LectorArchivos.lectorHechizos();
 	
 	@Override
 	public void agregarMago() {
 		
+		
 	}
 
-	@Override
+	@Override	
 	public void modificarMago() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	@Override
 	public void eliminarMago() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	@Override
 	public void agregarHechizo() {
-		// TODO Auto-generated method stub
+		System.out.println("Elige el tipo de tipo de hechizo (Fuego, Tierra, Planta o Agua): ");
+		String op = scanner.nextLine();
 		
+		if (op.equals("Fuego")) {
+			System.out.println("Escribe el nuevo hechizo en el siguiente formato: NombreHechizo;Tipo;Daño;DuracionQuemadura");
+			String nuevoHechizo = scanner.nextLine();
+			String[] partes = nuevoHechizo.split(";");
+			listaHechizos.add(new Fuego(partes[0], partes[1], Integer.parseInt(partes[2]), Integer.parseInt(partes[3])));
+			LectorArchivos.agregarHechizo(listaHechizos);
+			
+		} else if (op.equals("Tierra")) {
+			System.out.println("Escribe el nuevo hechizo en el siguiente formato: NombreHechizo;Tipo;Daño;MejoraDefensa");
+			String nuevoHechizo = scanner.nextLine();
+			String[] partes = nuevoHechizo.split(";");
+			listaHechizos.add(new Tierra(partes[0], partes[1], Integer.parseInt(partes[2]), Integer.parseInt(partes[3])));
+			LectorArchivos.agregarHechizo(listaHechizos);
+			
+		} else if (op.equals("Planta")) {
+			System.out.println("Escribe el nuevo hechizo en el siguiente formato: NombreHechizo;Tipo;Daño;DuracionStun,CantPlantas");
+			String nuevoHechizo = scanner.nextLine();
+			String[] partes = nuevoHechizo.split(";");
+			listaHechizos.add(new Planta(partes[0], partes[1], Integer.parseInt(partes[2]), Integer.parseInt(partes[3]), Integer.parseInt(partes[4])));
+			LectorArchivos.agregarHechizo(listaHechizos);
+			
+		} else {
+			System.out.println("Escribe el nuevo hechizo en el siguiente formato: NombreHechizo;Tipo;Daño;CantidadHeal,PresionDelAgua");
+			String nuevoHechizo = scanner.nextLine();
+			String[] partes = nuevoHechizo.split(";");
+			listaHechizos.add(new Agua(partes[0], partes[1], Integer.parseInt(partes[2]), Integer.parseInt(partes[3]), Integer.parseInt(partes[4])));
+			LectorArchivos.agregarHechizo(listaHechizos);
+			
+		}
+		
+			
 	}
 
 	@Override
 	public void modificarHechizo() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	@Override
 	public void eliminarHechizo() {
-		// TODO Auto-generated method stub
+		
 		
 	}
+	
 
 
 	
