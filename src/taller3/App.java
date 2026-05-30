@@ -11,19 +11,30 @@ public class App {
 	
 	public static void MenuPrincipal(Scanner scanner) {
 		
-		System.out.println("Bienvenido! \nSeleccione el menú al que desea ingresar (Ingrese 1 o 2): \n1) Administrador\n2) Analista");
-		int op = Integer.parseInt(scanner.nextLine());
+		int op;
 		
-		while (op > 3 || op < 0) {
-			System.out.println("Opción incorrecta. Porfavor ingrese de nuevo.");
+		do {
+			System.out.println("Bienvenido! \nSeleccione el menú al que desea ingresar (Ingrese 1 o 2): \n1) Administrador\n2) Analista\n3) Salir");
 			op = Integer.parseInt(scanner.nextLine());
-		}
+			
+			while (op > 3 || op < 0) {
+				System.out.println("Opción incorrecta. Porfavor ingrese de nuevo.");
+				op = Integer.parseInt(scanner.nextLine());
+			}
+			
+			switch (op) {
+			case 1:
+				MenuAdministrador(scanner);
+				break;
+			case 2:
+				MenuAnalista(scanner);
+				break;
+			default:
+				System.out.println("Saliendo...");
+			}
+		} while (op != 3);
 		
-		if (op == 1) {
-			MenuAdministrador(scanner);
-		} else {
-			MenuAnalista(scanner);
-		}
+		
 		
 	}
 	
@@ -34,17 +45,20 @@ public class App {
 
 	public static void MenuAdministrador(Scanner scanner) {
 		
-		System.out.println("Seleccione lo que desea hacer: ");
-		System.out.println("1. Agregar Mago");
-		System.out.println("2. Modificar Mago");
-		System.out.println("3. Eliminar Mago");
-		System.out.println("4. Agregar Hechizo");
-		System.out.println("5. Modificar Hechizo");
-		System.out.println("6. Eliminar Hechizo");
-		
-		int op = Integer.parseInt(scanner.nextLine());
-		
-		switch (op) {
+		int op;
+		do {
+			System.out.println("Seleccione lo que desea hacer: ");
+			System.out.println("1. Agregar Mago");
+			System.out.println("2. Modificar Mago");
+			System.out.println("3. Eliminar Mago");
+			System.out.println("4. Agregar Hechizo");
+			System.out.println("5. Modificar Hechizo");
+			System.out.println("6. Eliminar Hechizo");
+			System.out.println("7. Salir");
+			
+			op = Integer.parseInt(scanner.nextLine());
+			
+			switch (op) {
 			case 1:
 				System.out.println();
 				adm.agregarMago();
@@ -72,14 +86,62 @@ public class App {
 				adm.eliminarHechizo();
 				System.out.println("Hechizo eliminado con éxito");
 				break;
-		}
-		
+			default:
+				System.out.println("Saliendo...");
+				break;
+			}
+		} while (op != 7);
 		
 		
 	}
 	
-	
 	public static void MenuAnalista(Scanner scanner) {
+		
+		int op;	
+		do {
+			System.out.println("Seleccione lo que desea hacer: ");
+			System.out.println("1. Top 10 Mejores Hechizos");
+			System.out.println("2. Top 3 Mejores Magos");
+			System.out.println("3. Mostrar todos los Hechizos");
+			System.out.println("4. Mostrar todos los magos");
+			System.out.println("5. Mostrar todos los Hechizos junto a su puntuacion");
+			System.out.println("6. Mostrar todos los magos junto a su puntuacion");
+			System.out.println("7. Salir");
+			
+			op = Integer.parseInt(scanner.nextLine());
+			
+			switch (op) {
+			case 1:
+				System.out.println();
+				an.mejores10hechizos();
+
+				break;
+			case 2:
+				System.out.println();
+				an.mejores3magos();
+				break;
+			case 3:
+				System.out.println();
+				an.mostrarTodosHechizos();
+
+				break;
+			case 4:
+				System.out.println();
+				an.mostrarTodosMagos();
+
+			case 5:
+				System.out.println();
+				an.mostrarHechizosYPutuacion();
+				break;
+			case 6:
+				System.out.println();
+				an.mostrarMagosYPuntuacion();
+				break;
+			default:
+				System.out.println("Saliendo...");
+				break;
+			}
+		} while (op != 7);
 		
 	}
 	

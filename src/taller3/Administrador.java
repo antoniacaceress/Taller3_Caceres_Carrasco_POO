@@ -26,12 +26,12 @@ public class Administrador implements SistemaAdm {
 
 	@Override	
 	public void modificarMago() {
-		
+		System.out.println("¿Qué desea modificar?");
 		
 	}
 
 	@Override
-	public void eliminarMago() {	
+	public void eliminarMago() {
 		System.out.println("Seleccione el mago a eliminar (Seleccione el número): ");
 		for (int i = 0; i < listaMagos.size(); i++) {
 			System.out.println((i + 1) + ") " + listaMagos.get(i));
@@ -118,8 +118,5 @@ public class Administrador implements SistemaAdm {
 		listaHechizos.remove(op - 1);
 		LectorArchivos.modificarTXTHechizo(listaHechizos);	
 	}
-	
 
-
-	
 }
