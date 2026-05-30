@@ -63,7 +63,7 @@ public class LectorArchivos {
 		return listaMagos;	
 	}	     
 	
-	public static void agregarHechizo(ArrayList<Hechizo> lista) {
+	public static void modificarTXTHechizo(ArrayList<Hechizo> lista) {
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter("Hechizos.txt"));
 			for (Hechizo h : lista) {
@@ -76,7 +76,7 @@ public class LectorArchivos {
 		}
 	}
 	
-	public static void agregarMago(ArrayList<Mago> lista) {
+	public static void modificarTXTMago(ArrayList<Mago> lista) {
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter("Magos.txt"));
 			for (Mago m : lista) {
@@ -89,4 +89,5 @@ public class LectorArchivos {
 		}
 	}
 
+	
 }

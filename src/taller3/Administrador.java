@@ -21,7 +21,7 @@ public class Administrador implements SistemaAdm {
 			hechizosDelMago.add(partes2[i]);
 		}
 		listaMagos.add(new Mago(partes[0], hechizosDelMago));
-		LectorArchivos.agregarMago(listaMagos);
+		LectorArchivos.modificarTXTMago(listaMagos);
 	}
 
 	@Override	
@@ -31,9 +31,18 @@ public class Administrador implements SistemaAdm {
 	}
 
 	@Override
-	public void eliminarMago() {
-		
-		
+	public void eliminarMago() {	
+		System.out.println("Seleccione el mago a eliminar (Seleccione el número): ");
+		for (int i = 0; i < listaMagos.size(); i++) {
+			System.out.println((i + 1) + ") " + listaMagos.get(i));
+		}
+		int op = Integer.parseInt(scanner.nextLine());
+		while (op > listaMagos.size()) {
+			System.out.println("Número de mago inexistente. Intente de nuevo");
+			op = Integer.parseInt(scanner.nextLine());
+		}
+		listaMagos.remove(op - 1);
+		LectorArchivos.modificarTXTMago(listaMagos);		
 	}
 
 	@Override
@@ -50,7 +59,7 @@ public class Administrador implements SistemaAdm {
 			}
 			String[] partes = nuevoHechizo.split(";");
 			listaHechizos.add(new Fuego(partes[0], partes[1], Integer.parseInt(partes[2]), Integer.parseInt(partes[3])));
-			LectorArchivos.agregarHechizo(listaHechizos);
+			LectorArchivos.modificarTXTHechizo(listaHechizos);
 			
 		} else if (op.equals("Tierra")) {
 			System.out.println("Escribe el nuevo hechizo en el siguiente formato: NombreHechizo;Tipo;Daño;MejoraDefensa");
@@ -61,7 +70,7 @@ public class Administrador implements SistemaAdm {
 			}
 			String[] partes = nuevoHechizo.split(";");
 			listaHechizos.add(new Tierra(partes[0], partes[1], Integer.parseInt(partes[2]), Integer.parseInt(partes[3])));
-			LectorArchivos.agregarHechizo(listaHechizos);
+			LectorArchivos.modificarTXTHechizo(listaHechizos);
 			
 		} else if (op.equals("Planta")) {
 			System.out.println("Escribe el nuevo hechizo en el siguiente formato: NombreHechizo;Tipo;Daño;DuracionStun,CantPlantas");
@@ -72,7 +81,7 @@ public class Administrador implements SistemaAdm {
 			}
 			String[] partes = nuevoHechizo.split(";");
 			listaHechizos.add(new Planta(partes[0], partes[1], Integer.parseInt(partes[2]), Integer.parseInt(partes[3]), Integer.parseInt(partes[4])));
-			LectorArchivos.agregarHechizo(listaHechizos);
+			LectorArchivos.modificarTXTHechizo(listaHechizos);
 			
 		} else {
 			System.out.println("Escribe el nuevo hechizo en el siguiente formato: NombreHechizo;Tipo;Daño;CantidadHeal,PresionDelAgua");
@@ -83,7 +92,7 @@ public class Administrador implements SistemaAdm {
 			}
 			String[] partes = nuevoHechizo.split(";");
 			listaHechizos.add(new Agua(partes[0], partes[1], Integer.parseInt(partes[2]), Integer.parseInt(partes[3]), Integer.parseInt(partes[4])));
-			LectorArchivos.agregarHechizo(listaHechizos);
+			LectorArchivos.modificarTXTHechizo(listaHechizos);
 			
 		}
 		
@@ -97,8 +106,17 @@ public class Administrador implements SistemaAdm {
 
 	@Override
 	public void eliminarHechizo() {
-		
-		
+		System.out.println("Seleccione el hechizo a eliminar (Seleccione el número): ");
+		for (int i = 0; i < listaHechizos.size(); i++) {
+			System.out.println((i + 1) + ") " + listaHechizos.get(i));
+		}
+		int op = Integer.parseInt(scanner.nextLine());
+		while (op > listaHechizos.size()) {
+			System.out.println("Número de hechizo inexistente. Intente de nuevo");
+			op = Integer.parseInt(scanner.nextLine());
+		}
+		listaHechizos.remove(op - 1);
+		LectorArchivos.modificarTXTHechizo(listaHechizos);	
 	}
 	
 

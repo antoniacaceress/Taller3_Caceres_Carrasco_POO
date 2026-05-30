@@ -27,7 +27,6 @@ public class App {
 		
 	}
 	
-	
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		MenuPrincipal(scanner);
@@ -58,6 +57,7 @@ public class App {
 			case 3:
 				System.out.println();
 				adm.eliminarMago();
+				System.out.println("Mago eliminado con éxito");
 				break;
 			case 4:
 				System.out.println();
@@ -70,6 +70,7 @@ public class App {
 			case 6:
 				System.out.println();
 				adm.eliminarHechizo();
+				System.out.println("Hechizo eliminado con éxito");
 				break;
 		}
 		
