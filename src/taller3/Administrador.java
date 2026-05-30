@@ -16,7 +16,7 @@ public class Administrador implements SistemaAdm {
 		ArrayList<String> hechizosDelMago = new ArrayList<>();
 		
 		String[] partes = nuevoMago.split(";");
-		String[] partes2 = partes[1].split("|");
+		String[] partes2 = partes[1].split("\\|");
 		for (int i = 0; i < partes2.length; i++) {
 			hechizosDelMago.add(partes2[i]);
 		}
@@ -44,6 +44,10 @@ public class Administrador implements SistemaAdm {
 		if (op.equals("Fuego")) {
 			System.out.println("Escribe el nuevo hechizo en el siguiente formato: NombreHechizo;Tipo;Daño;DuracionQuemadura");
 			String nuevoHechizo = scanner.nextLine();
+			while (nuevoHechizo.length() < 4) {
+				System.out.println("Formato de hechizo incorrecto. Intente de nuevo");
+				nuevoHechizo = scanner.nextLine();
+			}
 			String[] partes = nuevoHechizo.split(";");
 			listaHechizos.add(new Fuego(partes[0], partes[1], Integer.parseInt(partes[2]), Integer.parseInt(partes[3])));
 			LectorArchivos.agregarHechizo(listaHechizos);
@@ -51,6 +55,10 @@ public class Administrador implements SistemaAdm {
 		} else if (op.equals("Tierra")) {
 			System.out.println("Escribe el nuevo hechizo en el siguiente formato: NombreHechizo;Tipo;Daño;MejoraDefensa");
 			String nuevoHechizo = scanner.nextLine();
+			while (nuevoHechizo.length() < 4) {
+				System.out.println("Formato de hechizo incorrecto. Intente de nuevo");
+				nuevoHechizo = scanner.nextLine();
+			}
 			String[] partes = nuevoHechizo.split(";");
 			listaHechizos.add(new Tierra(partes[0], partes[1], Integer.parseInt(partes[2]), Integer.parseInt(partes[3])));
 			LectorArchivos.agregarHechizo(listaHechizos);
@@ -58,6 +66,10 @@ public class Administrador implements SistemaAdm {
 		} else if (op.equals("Planta")) {
 			System.out.println("Escribe el nuevo hechizo en el siguiente formato: NombreHechizo;Tipo;Daño;DuracionStun,CantPlantas");
 			String nuevoHechizo = scanner.nextLine();
+			while (nuevoHechizo.length() < 4) {
+				System.out.println("Formato de hechizo incorrecto. Intente de nuevo");
+				nuevoHechizo = scanner.nextLine();
+			}
 			String[] partes = nuevoHechizo.split(";");
 			listaHechizos.add(new Planta(partes[0], partes[1], Integer.parseInt(partes[2]), Integer.parseInt(partes[3]), Integer.parseInt(partes[4])));
 			LectorArchivos.agregarHechizo(listaHechizos);
@@ -65,6 +77,10 @@ public class Administrador implements SistemaAdm {
 		} else {
 			System.out.println("Escribe el nuevo hechizo en el siguiente formato: NombreHechizo;Tipo;Daño;CantidadHeal,PresionDelAgua");
 			String nuevoHechizo = scanner.nextLine();
+			while (nuevoHechizo.length() < 4) {
+				System.out.println("Formato de hechizo incorrecto. Intente de nuevo");
+				nuevoHechizo = scanner.nextLine();
+			}
 			String[] partes = nuevoHechizo.split(";");
 			listaHechizos.add(new Agua(partes[0], partes[1], Integer.parseInt(partes[2]), Integer.parseInt(partes[3]), Integer.parseInt(partes[4])));
 			LectorArchivos.agregarHechizo(listaHechizos);
