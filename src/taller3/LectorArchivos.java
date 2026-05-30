@@ -39,9 +39,28 @@ public class LectorArchivos {
 		return listaHechizos;	
 	}
 	
-	public static void lectorMagos() {
+	public static  ArrayList<Mago> lectorMagos(){
+		ArrayList<Mago> listaMagos = new ArrayList<>();
+		ArrayList<String> hechizosMagos = new ArrayList<>();
 		
-	}
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("Magos.txt"));
+			String linea;
+			
+			while ((linea = br.readLine()) != null) {
+				String[] partes = linea.split(";");
+				String[] partes2 = partes[1].split("|");
+				for (int i = 0; i < partes2.length; i++) {
+					hechizosMagos.add(partes2[i]);
+				}
+				listaMagos.add(new Mago(partes[0], hechizosMagos));
+			}
+			
+		} catch (IOException e) {
+			System.out.println("No se pudo leer el archivo" + e.getMessage());
+		}	
+		return listaMagos;	
+	}	     
 	
 	public static void agregarHechizo(ArrayList<Hechizo> lista) {
 		try {
@@ -56,6 +75,17 @@ public class LectorArchivos {
 		}
 	}
 	
-	
+	public static void agregarMago(ArrayList<Mago> lista) {
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter("Magos.txt"));
+			for (Mago m : lista) {
+				bw.write(m.toString());
+				bw.newLine();
+			}
+			
+		} catch (IOException e) {
+			System.out.println("Error al abrir el archivo" + e.getMessage());
+		}
+	}
 
 }

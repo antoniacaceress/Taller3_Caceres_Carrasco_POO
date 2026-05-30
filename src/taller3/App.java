@@ -46,17 +46,32 @@ public class App {
 		int op = Integer.parseInt(scanner.nextLine());
 		
 		switch (op) {
-			
-		case 1:
-			System.out.println();
-			adm.agregarMago();
-			System.out.println("Mago agregado con éxito");
-		
-		case 4:
-			System.out.println();
-			adm.agregarHechizo();
-			System.out.println("Hechizo agregado con éxito");
-		
+			case 1:
+				System.out.println();
+				adm.agregarMago();
+				System.out.println("Mago agregado con éxito");
+				break;
+			case 2:
+				System.out.println();
+				adm.agregarMago();
+				break;
+			case 3:
+				System.out.println();
+				adm.eliminarMago();
+				break;
+			case 4:
+				System.out.println();
+				adm.agregarHechizo();
+				System.out.println("Hechizo agregado con éxito");
+				break;
+			case 5:
+				System.out.println();
+				adm.modificarHechizo();
+				break;
+			case 6:
+				System.out.println();
+				adm.eliminarHechizo();
+				break;
 		}
 		
 		

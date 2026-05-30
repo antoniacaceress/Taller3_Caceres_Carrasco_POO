@@ -7,11 +7,21 @@ public class Administrador implements SistemaAdm {
 
 	Scanner scanner = new Scanner(System.in);
 	ArrayList<Hechizo> listaHechizos = LectorArchivos.lectorHechizos();
+	ArrayList<Mago> listaMagos = LectorArchivos.lectorMagos();
 	
 	@Override
 	public void agregarMago() {
+		System.out.println("Ingrese los datos de su mago (NombreMago;Hechizo 1|Hechizo 2|Hechizo N...): ");
+		String nuevoMago = scanner.nextLine();
+		ArrayList<String> hechizosDelMago = new ArrayList<>();
 		
-		
+		String[] partes = nuevoMago.split(";");
+		String[] partes2 = partes[1].split("|");
+		for (int i = 0; i < partes2.length; i++) {
+			hechizosDelMago.add(partes2[i]);
+		}
+		listaMagos.add(new Mago(partes[0], hechizosDelMago));
+		LectorArchivos.agregarMago(listaMagos);
 	}
 
 	@Override	
@@ -66,8 +76,7 @@ public class Administrador implements SistemaAdm {
 
 	@Override
 	public void modificarHechizo() {
-		
-		
+
 	}
 
 	@Override
