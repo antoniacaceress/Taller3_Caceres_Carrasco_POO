@@ -62,37 +62,36 @@ public class App {
 			case 1:
 				System.out.println();
 				adm.agregarMago();
-				System.out.println("Mago agregado con éxito");
+				System.out.println("Mago agregado con éxito!");
 				break;
 			case 2:
 				System.out.println();
-				adm.agregarMago();
+				adm.modificarMago();
 				break;
 			case 3:
 				System.out.println();
 				adm.eliminarMago();
-				System.out.println("Mago eliminado con éxito");
+				System.out.println("Mago eliminado con éxito!");
 				break;
 			case 4:
 				System.out.println();
 				adm.agregarHechizo();
-				System.out.println("Hechizo agregado con éxito");
+				System.out.println("Hechizo agregado con éxito!");
 			case 5:
 				System.out.println();
 				adm.modificarHechizo();
+				System.out.println("Hechizo modificado con éxito!");
 				break;
 			case 6:
 				System.out.println();
 				adm.eliminarHechizo();
-				System.out.println("Hechizo eliminado con éxito");
+				System.out.println("Hechizo eliminado con éxito!");
 				break;
 			default:
 				System.out.println("Saliendo...");
 				break;
 			}
-		} while (op != 7);
-		
-		
+		} while (op != 7);		
 	}
 	
 	public static void MenuAnalista(Scanner scanner) {
@@ -144,16 +143,5 @@ public class App {
 		} while (op != 7);
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

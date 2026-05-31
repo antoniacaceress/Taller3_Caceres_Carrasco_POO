@@ -42,7 +42,24 @@ public class Hechizo {
 	public void setDaño(int daño) {
 		this.daño = daño;
 	}
-
+	
+	public void setDuracionQuemadura(int duracionQuemadura) {
+	}
+	
+	public void setMejoraDefensa(int mejoraDefensa) {
+	}
+	
+	public void setDuracionStun(int duracionStun) {
+	}
+	
+	public void setCantPlantas(int cantPlantas) {
+	}
+	
+	public void setCantidadHeal(int cantidadHeal) {
+	}
+	
+	public void setPresionDelAgua(int presionDelAgua) {
+	}
 
 	@Override
 	public String toString() {
