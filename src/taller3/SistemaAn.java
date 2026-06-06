@@ -8,6 +8,5 @@ public interface SistemaAn {
 	void mostrarTodosMagos();
 	void mostrarHechizosYPutuacion();
 	void mostrarMagosYPuntuacion();
-	void calculoPuntaje();
 	
 }
