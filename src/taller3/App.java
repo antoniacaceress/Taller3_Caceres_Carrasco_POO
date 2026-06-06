@@ -77,6 +77,7 @@ public class App {
 				System.out.println();
 				adm.agregarHechizo();
 				System.out.println("Hechizo agregado con éxito!");
+				break;
 			case 5:
 				System.out.println();
 				adm.modificarHechizo();
@@ -127,7 +128,7 @@ public class App {
 			case 4:
 				System.out.println();
 				an.mostrarTodosMagos();
-
+				break;
 			case 5:
 				System.out.println();
 				an.mostrarHechizosYPutuacion();
