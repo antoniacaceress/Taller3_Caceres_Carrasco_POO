@@ -10,7 +10,7 @@ public class Administrador implements SistemaAdm {
 	ArrayList<Mago> listaMagos = LectorArchivos.lectorMagos();
 	
 	@Override
-	public void agregarMago() {
+	public void agregarMago() { //agrega un mago
 		System.out.println("Ingrese los datos de su mago (NombreMago;Hechizo 1|Hechizo 2|Hechizo N...): ");
 		String nuevoMago = scanner.nextLine();
 		ArrayList<String> hechizosDelMago = new ArrayList<>();
@@ -25,7 +25,7 @@ public class Administrador implements SistemaAdm {
 	}
 
 	@Override	
-	public void modificarMago() {
+	public void modificarMago() { // modifica un mago
 		
 		for (int i = 0; i < listaMagos.size(); i++) {
 			System.out.println((i + 1) + ") " + listaMagos.get(i));
@@ -69,7 +69,7 @@ public class Administrador implements SistemaAdm {
 	}
 
 	@Override
-	public void eliminarMago() {
+	public void eliminarMago() { // elimina un mago
 		System.out.println("Seleccione el mago a eliminar (Seleccione el número): ");
 		for (int i = 0; i < listaMagos.size(); i++) {
 			System.out.println((i + 1) + ") " + listaMagos.get(i));
@@ -84,7 +84,7 @@ public class Administrador implements SistemaAdm {
 	}
 
 	@Override
-	public void agregarHechizo() {
+	public void agregarHechizo() { // agrega un hechizo
 		System.out.println("Elige el tipo de tipo de hechizo (Fuego, Tierra, Planta o Agua): ");
 		String op = scanner.nextLine();
 		
@@ -138,7 +138,7 @@ public class Administrador implements SistemaAdm {
 	}
 
 	@Override
-	public void modificarHechizo() {
+	public void modificarHechizo() { // modifica un hechizo
 		
 		for (int i = 0; i < listaHechizos.size(); i++) {
 			System.out.println((i + 1) + ") " + listaHechizos.get(i));
@@ -268,7 +268,7 @@ public class Administrador implements SistemaAdm {
 	}
 
 	@Override
-	public void eliminarHechizo() {
+	public void eliminarHechizo() { // elimina un hechizo
 		System.out.println("Seleccione el hechizo a eliminar (Seleccione el número): ");
 		for (int i = 0; i < listaHechizos.size(); i++) {
 			System.out.println((i + 1) + ") " + listaHechizos.get(i));
