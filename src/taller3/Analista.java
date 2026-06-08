@@ -11,7 +11,7 @@ public class Analista implements SistemaAn {
 	
 	
 
-	private double puntajeMago(Mago mago) {
+	private double puntajeMago(Mago mago) { // calcula el puntaje de un mago
 	    double total = 0;
 
 	    for (String nombreHechizo : mago.getHechizos()) {
@@ -27,7 +27,7 @@ public class Analista implements SistemaAn {
 	
 	
 	@Override
-	public void mejores10hechizos() {
+	public void mejores10hechizos() { // ordena y muestra los 10 mejores hechizos
 		ArrayList<Hechizo> copia = new ArrayList<>();
 
 		for (Hechizo h : listaHechizos) {
@@ -51,7 +51,7 @@ public class Analista implements SistemaAn {
 	}
 
 	@Override
-	public void mejores3magos() {
+	public void mejores3magos() { // ordena y muestra los 3 mejores magos
 		ArrayList<Mago> copia = new ArrayList<>();
 
 		for (Mago h : listaMagos) {
@@ -76,7 +76,7 @@ public class Analista implements SistemaAn {
 	}
 
 	@Override
-	public void mostrarTodosHechizos() {
+	public void mostrarTodosHechizos() { //muestra todos los hechizos
 		System.out.println("Estos son todos los hechizos que posees: ");
 		for (int i = 0; i < listaHechizos.size(); i++) {
 			System.out.println((i + 1) + ") " + listaHechizos.get(i));
@@ -85,7 +85,7 @@ public class Analista implements SistemaAn {
 	}
 
 	@Override
-	public void mostrarTodosMagos() {
+	public void mostrarTodosMagos() { //muestra todos los magos
 		System.out.println("Estos son todos los magos que posees: ");
 		for (int i = 0; i < listaMagos.size(); i++) {
 			System.out.println((i + 1) + ") " + listaMagos.get(i));
@@ -93,7 +93,7 @@ public class Analista implements SistemaAn {
 	}
 
 	@Override
-	public void mostrarHechizosYPutuacion() {
+	public void mostrarHechizosYPutuacion() { //muestra los hechizos y su puntuacion
 		for(Hechizo h : listaHechizos){
 			System.out.println(h.getNombre() + " -> " + h.calcularPuntaje());
 		}
@@ -101,7 +101,7 @@ public class Analista implements SistemaAn {
 	}
 
 	@Override
-	public void mostrarMagosYPuntuacion() {
+	public void mostrarMagosYPuntuacion() { //muestra al mago y a la puntuacion
 		for(Mago m : listaMagos){
 			System.out.println(m.getNombre() + " -> " + puntajeMago(m));
 		}
